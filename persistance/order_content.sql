@@ -33,6 +33,11 @@ INSERT INTO Discount (Discount_ID, Discount_Name, Discount_Rate, OrderValue) VAL
 (3, '10% off', 10.00, 10000.00);
 
 INSERT INTO Orders (order_id, item_name, quantity, unit_price, sub_total_price, vat_price, discount_price, total_price, vat_id, discount_id) VALUES
-(1001, 'item 1', 1, 100, 0, 0, 0, 5, 1),
-(1002, 'item 2', 10, 20, 0, 0, 0, 10, 2),
-(1003, 'item 3', 120, 30, 0, 0, 0, 7, 3);
+(1001, 'item 1', 1, 100, 0, 0, 0, 0, 5, 1),
+(1002, 'item 2', 10, 20, 0, 0, 0, 0, 10, 2),
+(1003, 'item 3', 120, 30, 0, 0, 0, 0, 7, 3);
+
+INSERT INTO Orders (order_id, item_name, quantity, unit_price, sub_total_price, vat_price, discount_price, total_price, vat_id, discount_id) VALUES
+(1004, 'item 4', 1, 100, 0, 0, 0, 0, 6, 1),
+(1005, 'item 5', 10, 20, 0, 0, 0, 0, 12, 2),
+(1006, 'item 6', 120, 30, 0, 0, 0, 0, 8, 3);

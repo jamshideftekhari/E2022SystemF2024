@@ -1,9 +1,9 @@
 class PriceCalculator:
     def __init__(self, unit_price, quantity, vat_rate, discount_rate=0):
-        self.unit_price = unit_price
-        self.quantity = quantity
-        self.vat_rate = vat_rate
-        self.discount_rate = discount_rate
+        self.unit_price = float(unit_price)
+        self.quantity = int(quantity)
+        self.vat_rate = float(vat_rate)
+        self.discount_rate = float(discount_rate)
 
     def calculate_price(self):
         return self.unit_price * self.quantity

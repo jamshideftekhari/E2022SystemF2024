@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS VAT (
     Country_Code CHAR(2),
     VAT_Rate DECIMAL(5, 2)
 );
-drop table vat;
+-- drop table vat;
                        
 CREATE TABLE IF NOT EXISTS Discount (
     Discount_ID INT PRIMARY KEY,
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS Discount (
     OrderValue DECIMAL(10, 2)
 );
                        
-drop table discount;                       
+-- drop table discount;                       
                        
 CREATE TABLE IF NOT EXISTS orders
                       (order_id INTEGER PRIMARY KEY, 
@@ -32,4 +32,4 @@ CREATE TABLE IF NOT EXISTS orders
                        FOREIGN KEY (vat_id) REFERENCES vat(vat_id),
                        FOREIGN KEY (discount_id) REFERENCES discount(discount_id));   
                        
-drop table orders;                       
+-- drop table orders;                       

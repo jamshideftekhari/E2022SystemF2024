@@ -7,7 +7,6 @@ class DatabaseReader:
         self.user = user
         self.password = password
         self.database = database
-        self.cursor = None
 
     def read_data(self, table_name, columns="*", condition=""):
         try:
@@ -18,7 +17,7 @@ class DatabaseReader:
                 database=self.database
             )
 
-            self.cursor = connection.cursor()
+            cursor = connection.cursor()
 
             # Construct the SQL query
             query = f"SELECT {columns} FROM {table_name}"
@@ -26,8 +25,8 @@ class DatabaseReader:
                 query += f" WHERE {condition}"
 
             # Retrieve data from the specified table
-            self.cursor.execute(query)
-            data = self.cursor.fetchall()
+            cursor.execute(query)
+            data = cursor.fetchall()
 
             return data
 
@@ -54,32 +53,32 @@ class VendorDataReader(DatabaseReader):
 class ProductDataReader(DatabaseReader):
     def read_products(self, columns="*", condition=""):
         return self.read_data("Products", columns, condition)
-    
-if __name__ == "__main__":
-    # Example usage:
-    host = "localhost"
-    user = "root"
-    password = "jam2003eft"
-    database = "salesordersdelivery"
 
-    # host = "mysql78.unoeuro.com"
-    # user = "jaef_dk"
-    # password = "e49Dh25cdnGpkgFy6rEB"
-    # database = "jaef_dk_db"
+# Example usage:
+# Example usage:
+# host = "localhost"
+# user = "root"
+# password = "jam2003eft"
+# database = "salesordersdelivery"
 
-    customer_reader = CustomerDataReader(host, user, password, database)
-    employee_reader = EmployeeDataReader(host, user, password, database)
-    vendor_reader = VendorDataReader(host, user, password, database)
-    product_reader = ProductDataReader(host, user, password, database)
+host = "mysql78.unoeuro.com"
+user = "jaef_dk"
+password = "e49Dh25cdnGpkgFy6rEB"
+database = "jaef_dk_db"
 
-    # Read data for customers, employees, vendors, and products
-    customers_data = customer_reader.read_customers()
-    employees_data = employee_reader.read_employees()
-    vendors_data = vendor_reader.read_vendors()
-    products_data = product_reader.read_products()
+customer_reader = CustomerDataReader(host, user, password, database)
+employee_reader = EmployeeDataReader(host, user, password, database)
+vendor_reader = VendorDataReader(host, user, password, database)
+product_reader = ProductDataReader(host, user, password, database)
 
-    # Print or process the retrieved data as needed 
-    print("Customers:", customers_data)
-    print("Employees:", employees_data)
-    print("Vendors:", vendors_data)
-    print("Products:", products_data)
+# Read data for customers, employees, vendors, and products
+customers_data = customer_reader.read_customers()
+employees_data = employee_reader.read_employees()
+vendors_data = vendor_reader.read_vendors()
+products_data = product_reader.read_products()
+
+# Print or process the retrieved data as needed
+print("Customers:", customers_data)
+print("Employees:", employees_data)
+print("Vendors:", vendors_data)
+print("Products:", products_data)

@@ -75,16 +75,16 @@ if __name__ == "__main__":
 # password = "jam2003eft"
 # database = "salesordersdelivery"
 
-    host = "mysql78.unoeuro.com"
-    user = "jaef_dk"
-    password = "e49Dh25cdnGpkgFy6rEB"
-    database = "jaef_dk_db"
+host = "mysql78.unoeuro.com"
+user = "jaef_dk"
+password = "e49Dh25cdnGpkgFy6rEB"
+database = "jaef_dk_db"
 
-    order_reader = OrderDataReader(host, user, password, database)
+order_reader = OrderDataReader(host, user, password, database)
 
-    order_dates_data = order_reader.read_order_dates()
+order_dates_data = order_reader.read_order_dates()
 
-    if order_dates_data:
-        # Specify the interval ('weekly' or 'monthly')
-        interval = 'weekly'
-        order_reader.create_bar_chart(order_dates_data, interval)
+if order_dates_data:
+    # Specify the interval ('weekly' or 'monthly')
+    interval = 'weekly'
+    order_reader.create_bar_chart(order_dates_data, interval)
